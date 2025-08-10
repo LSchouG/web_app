@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const NavBar = () => {
   const { menuOpen, toggleMenu, handleMouseEnter, handleMouseLeave } = useMenuToggle(2000); // 2 sec auto-close
-  const isSmallScreen = useScreenSize(768); // Breakpoint at 768px
+  const isSmallScreen = useScreenSize(768); // Breakpoint at 768px.
 
   const logoText = isSmallScreen 
     ? 'Web & App<br>Lars Gregersen'
