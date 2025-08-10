@@ -1,11 +1,16 @@
-# macOS
+# macOS system files
 .DS_Store
 
-# Node/JS
+# Node.js dependencies
 node_modules/
+
+# Production build
 dist/
 build/
+
+# Local only
+Untitled/
+
+# Environment variables
 .env
-# Editors
-.vscode/
-.idea/
+.env.*
