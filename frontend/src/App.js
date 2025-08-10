@@ -1,6 +1,7 @@
 // src/App.js
 import './App.css';
-import NavBar from './navBar/NavBar';
+import NavBar from './Components/NavBar/NavBar';
+import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './Pages/Home'; // Changed to named import
 import { About } from './Pages/About'; // Changed to named import
@@ -14,9 +15,10 @@ import { LoginSignUp } from './Pages/LoginSignUp'; // Changed to named import
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <BrowserRouter>
         <NavBar />
+        <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -32,6 +34,8 @@ function App() {
           {/* <Route path="/products" element={<Products />} /> */}
           {/* <Route path="/productId" element={<Product />} /> */}
         </Routes>
+        </main>
+      <Footer />
       </BrowserRouter>
     </div>
   );

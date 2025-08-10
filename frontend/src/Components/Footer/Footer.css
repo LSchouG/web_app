@@ -1,0 +1,29 @@
+footer {
+  background-color: black;
+  color: white;
+  padding: 12px 16px;   
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+/* Flex container for left/right alignment */
+.p-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Optional debug outlines */
+.copyleft,
+.copyright {
+}
+
+/* Make sure they align correctly */
+.copyleft {
+  text-align: left;
+}
+
+.copyright {
+  text-align: right;
+}
