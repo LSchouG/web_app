@@ -1,0 +1,221 @@
+
+/*
+.navbar {
+  outline: 2px dashed red;
+}
+.nav-logo,
+.nav-image,
+.nav-menu {
+  outline: 1px solid blue;
+}
+*/
+/* NAVBAR CONTAINER */
+.navbar {
+  display: grid;
+  grid-template-areas: "logo image nav-menu";
+  grid-template-columns: 30% 20% 50%;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  box-shadow: 0 1px 3px -2px black;
+  width: 100%;
+  background-color: black;
+  height: 60px; /* fixed height */
+}
+
+/* LOGO SECTION */
+.nav-logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  background-color: #227db9;
+  color: white;
+  width: 100%;
+  height: 60px;
+}
+
+/* IMAGE SECTION */
+.nav-image {
+  grid-area: image;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-image img {
+  width: 100%;
+  height: 60px;
+  object-fit: fill;
+}
+
+/* MENU SECTION */
+.nav-menu {
+  grid-area: nav-menu;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  color: white;
+  position: relative; /* To anchor absolute dropdown */
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  padding-right: 20px;
+}
+
+.nav-menu .dropdown {
+  display: none;
+}
+
+.menu.active .nav-menu .dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: #333;
+  padding: 10px;
+  z-index: 1000;
+  gap: 10px;
+  min-width: 150px; /* Prevent too narrow */
+}
+
+.nav-menu li {
+  cursor: pointer;
+  padding-right: 5px;
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* UNDERLINE EFFECT ON HOVER (now on <a>) */
+.nav-menu a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: #0056b3;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0056b3;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER BUTTON (HIDDEN FOR DESKTOP) */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  padding-right: 20px;
+  padding-bottom: 3px;
+}
+
+/* Stage 2: Small Desktop – Show 4 links inline + Hamburger for remaining (1024–1260px) */
+@media (max-width: 1260px) and (min-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links.inline li {
+    display: none;
+  }
+
+  .menu-links.inline li:nth-child(-n+4) {
+    display: list-item;
+  }
+
+  .menu-links.dropdown li:nth-child(-n+4) {
+    display: none;
+  }
+
+  .menu-links.dropdown li:nth-child(n+5) {
+    display: list-item;
+  }
+}
+
+/* Stage 3: Tablet – Show 3 links inline + Hamburger for remaining (768–1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links.inline li {
+    display: none;
+  }
+
+  .menu-links.inline li:nth-child(-n+3) {
+    display: list-item;
+  }
+
+  .menu-links.dropdown li:nth-child(-n+3) {
+    display: none;
+  }
+
+  .menu-links.dropdown li:nth-child(n+4) {
+    display: list-item;
+  }
+}
+
+/* Stage 4: Mobile – Hamburger only, dropdown with all (<768px) */
+@media (max-width: 767px) {
+  .navbar {
+    grid-template-columns: 40% 20% 40%; /* Adjust for better mobile fit */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links.inline {
+    display: none; /* No inline links on mobile */
+  }
+
+  .menu-links.dropdown li {
+    display: list-item; /* All shown in dropdown */
+  }
+
+  .menu.active .nav-menu .dropdown {
+    left: 0;
+    right: 0;
+    text-align: center; /* Center links for mobile */
+    overflow-y: auto; /* Add scroll if somehow too tall, but unlikely */
+    max-height: calc(100vh - 60px); /* Prevent exceeding screen height */
+  }
+
+  .nav-logo {
+    font-size: 8px; /* Slightly smaller for mobile */
+  }
+
+  .nav-menu li {
+    font-size: 18px; /* Adjust for mobile */
+    padding: 10px 0;
+  }
+}
