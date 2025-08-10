@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Node/JS
+node_modules/
+dist/
+build/
+.env
+# Editors
+.vscode/
+.idea/
